@@ -1,0 +1,14 @@
+.link {
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 1.22;
+  transition: .3s;
+  padding-right: 5.9375%;
+}
+
+.link:hover,
+.link:focus {
+  opacity: .6;
+}

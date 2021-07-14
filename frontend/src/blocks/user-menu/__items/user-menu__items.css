@@ -1,0 +1,11 @@
+.user-menu__items {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+@media all and (max-width: 768px) {
+  .user-menu__items {
+    display: none;
+  }
+}

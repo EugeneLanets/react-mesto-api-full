@@ -1,0 +1,13 @@
+.sign-form {
+  --formBgColor: #000;
+  --formTextColor: #fff;
+  --formTitlePosition: center;
+  --formFieldUnderscore: #CCCCCC;
+  width: 358px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: center;
+  padding: 60px 0 112px;
+}

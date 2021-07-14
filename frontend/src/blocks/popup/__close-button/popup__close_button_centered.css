@@ -1,0 +1,4 @@
+.popup__close_button_centered {
+  left: 50%;
+  transform: rotate(45deg) translateX(-50%);
+}

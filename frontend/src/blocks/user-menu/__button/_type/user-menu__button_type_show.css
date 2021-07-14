@@ -1,0 +1,23 @@
+.user-menu__button_type_show {
+  display: none;
+  width: 24px;
+  height: 18px;
+  background-image: url("../../../../images/burger.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.user-menu__button_type_show:hover,
+.user-menu__button_type_show:focus {
+  opacity: 0.6;
+}
+
+@media all and (max-width: 767px) {
+  .user-menu__button_type_show {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: auto;
+    right: 5.9375%;
+  }
+}

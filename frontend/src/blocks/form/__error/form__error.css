@@ -1,0 +1,12 @@
+.form__error {
+  font-size: 12px;
+  line-height: 1.25;
+  color: #f00;
+  margin: 0 0 13px;
+  visibility: hidden;
+
+}
+
+.form__error:last-of-type {
+  margin-bottom: 30px;
+}

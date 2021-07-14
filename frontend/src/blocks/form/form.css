@@ -1,0 +1,6 @@
+.form {
+  box-sizing: border-box;
+  background-color: var(--formBgColor);
+  display: flex;
+  flex-direction: column;
+}

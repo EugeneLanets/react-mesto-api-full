@@ -1,0 +1,4 @@
+.sign-form__form {
+  justify-content: space-between;
+  flex-grow: 1;
+}

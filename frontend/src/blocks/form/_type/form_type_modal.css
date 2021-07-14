@@ -1,0 +1,12 @@
+.form_type_modal {
+  width: 430px;
+  padding: 34px 36px 37px;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 569px) {
+  .form_type_modal {
+    padding: 25px 22px;
+    width: 88.125%;
+  }
+}

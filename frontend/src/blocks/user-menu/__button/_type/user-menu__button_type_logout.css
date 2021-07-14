@@ -1,0 +1,7 @@
+.user-menu__button_type_logout {
+  opacity: 0.6;
+}
+
+.user-menu__button_type_logout:hover {
+  opacity: 1;
+}

@@ -1,0 +1,27 @@
+.form__field {
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid var(--formFieldUnderscore);
+  padding: 5px 0 13px;
+  margin-bottom: 5px;
+  font-family: "Inter";
+  font-size: 14px;
+  line-height: 1.21;
+  color: var(--formTextColor); 
+}
+
+.form__field::placeholder {
+  color: var(--formPhColor);
+}
+
+.form__field:focus,
+.form__field:hover {
+  border-color: var(--formTextColor);
+  outline: none;
+}
+
+@media screen and (max-width: 569px) {
+  .form__field:last-of-type {
+    margin-bottom: 45px;
+  }
+}

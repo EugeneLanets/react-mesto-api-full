@@ -1,0 +1,13 @@
+.user-menu__button {
+  line-height: inherit;
+  transition: .3s;
+  padding: 0;
+  background: none;
+  color: inherit;
+  border: none;
+}
+
+.user-menu__button:hover,
+.user-menu__button:focus {
+  cursor: pointer;
+}

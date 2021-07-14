@@ -1,0 +1,28 @@
+.user-menu__button_shown {
+  position: absolute;
+  bottom: 39px;
+  top: auto;
+  right: 5.9375%;
+  background-image: none;
+  transform: rotate(45deg);
+}
+
+.user-menu__button_shown::before,
+.user-menu__button_shown::after {
+  content: "";
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+}
+
+.user-menu__button_shown::before {
+  transform: translateY(-50%);
+}
+
+.user-menu__button_shown::after {
+  transform: translateY(-50%) rotate(90deg);
+}

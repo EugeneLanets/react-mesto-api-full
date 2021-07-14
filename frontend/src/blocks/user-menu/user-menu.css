@@ -1,0 +1,12 @@
+.user-menu {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.22;
+  color: #fff;
+}
+
+@media all and (max-width: 767px) {
+  .user-menu {
+    margin-bottom: 25px;
+  }
+}

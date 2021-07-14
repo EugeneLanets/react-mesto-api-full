@@ -1,0 +1,12 @@
+.popup_animation-type_disappear {
+  animation-name: disappear;
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

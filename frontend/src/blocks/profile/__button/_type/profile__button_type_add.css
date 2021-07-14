@@ -1,0 +1,37 @@
+.profile__button_type_add {
+  margin-left: auto;
+  margin-top: 35px;
+  color: transparent;
+  min-width: 150px;
+  height: 50px;
+}
+
+.profile__button_type_add::before,
+.profile__button_type_add::after {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.profile__button_type_add::after {
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.profile__button_type_add:hover,
+.profile__button_type_add:focus {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__button_type_add {
+    margin: 36px auto 0;
+    min-width: 282px;
+    width: 100%;
+  }
+}
+

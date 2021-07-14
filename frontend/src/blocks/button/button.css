@@ -1,0 +1,20 @@
+.button {
+  box-sizing: border-box;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  font-family: inherit;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.22;
+  text-align: center;
+  padding: 14px;
+  position: relative;
+  transition: opacity .5s;
+}
+
+.button:hover,
+.button:focus {
+  opacity: 0.8;
+  cursor: pointer;
+  outline: none;
+}

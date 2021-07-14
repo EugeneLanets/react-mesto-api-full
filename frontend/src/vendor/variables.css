@@ -1,0 +1,7 @@
+:root {
+  --formTextColor: #000;
+  --formBgColor: #fff;
+  --formPhColor: #c4c4c4;
+  --formTitlePosition: left;
+  --formFieldUnderscore: rgba(0, 0, 0, .2);
+}

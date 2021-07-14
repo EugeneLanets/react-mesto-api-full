@@ -1,0 +1,20 @@
+.footer {
+  box-sizing: border-box;
+  width: 68.75%;
+  max-width: 880px;
+  padding-top: 65px;
+  color: #545454;
+}
+
+@media screen and (max-width: 1023px) {
+  .footer {
+    width: 88.125%;
+    max-width: 88.125%;
+  }
+}
+
+@media screen and (max-width: 569px) {
+  .footer {
+    padding-top: 48px;
+  }
+}

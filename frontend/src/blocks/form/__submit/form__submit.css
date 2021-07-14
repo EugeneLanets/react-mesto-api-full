@@ -1,0 +1,5 @@
+.form__submit {
+  border-color: var(--formTextColor);
+  background-color: var(--formTextColor);
+  color: var(--formBgColor);
+}
