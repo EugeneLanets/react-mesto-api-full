@@ -4,13 +4,13 @@ const HeaderLink = () => {
   const location = useLocation();
   
   const locationMap = {
-    "/sign-in": {
+    "/signin": {
       name: "Регистрация",
-      path: "sign-up"
+      path: "signup"
     },
-    "/sign-up": {
+    "/signup": {
       name: "Войти",
-      path: "sign-in"
+      path: "signin"
     },
     "/": {
       name: "",

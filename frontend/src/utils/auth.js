@@ -1,4 +1,4 @@
-const baseURL = `https://auth.nomoreparties.co`;
+const baseURL = `https://api.lanets.nomoredomains.club`;
 
 class AuthApi {
   constructor(baseURL) {

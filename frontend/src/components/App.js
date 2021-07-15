@@ -217,7 +217,7 @@ const App = () => {
     authApi.register(credentials)
       .then(response => {
         handleRegistrationEnd(true);
-        history.push("/sign-in");
+        history.push("/signin");
       })
       .catch(err => {
         handleRegistrationEnd(false);
@@ -247,12 +247,12 @@ const App = () => {
             onLike={handleLikeClick}
             onDelete={handleDeleteClick}
           />
-          <Route path="/sign-up">
+          <Route path="/signup">
             <Register 
               onSubmit={handleRegisterSubmit}
             />
           </Route>
-          <Route path="/sign-in">
+          <Route path="/signin">
             <Login 
               onSubmit={handleLoginSubmit}
             />

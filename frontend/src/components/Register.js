@@ -10,7 +10,7 @@ const Register = ({onSubmit}) => {
       onSubmit={onSubmit}
     >
       <Link 
-        to="/sign-in"
+        to="/signin"
         className="link sign-form__link"  
       >Уже зарегистрированы? Войти</Link>
     </SignForm>
