@@ -9,12 +9,13 @@ class AuthApi {
       return response.json()
     }
   
-    return Promise.reject(`Ошибка: ${response.status}`);
+    return Promise.reject(`Ошибка: ${response.status} ${response.message}`);
   }
 
   _post(path, credentials){
     return fetch(`${this._baseURL}/${path}`, {
       method: "POST",
+      credentials: 'include',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -32,13 +33,14 @@ class AuthApi {
     return this._post('signin', credentials);
   }
 
-  checkToken(token) {
+  checkToken() {
+    console.log('Token');
     return fetch(`${this._baseURL}/users/me`, {
       method: "GET",
+      credentials: "include",
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
       }
     })
     .then(this._handleResponse)

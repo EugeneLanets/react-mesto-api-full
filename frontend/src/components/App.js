@@ -75,15 +75,14 @@ const App = () => {
   }
 
   const tokenCheck = () => {
-    const jwt = localStorage.getItem("jwt");
-    if (jwt) {
-      authApi.checkToken(jwt)
-        .then(({data:{email}}) => {
-          setEmail(email);
-          setLoggedIn(true);
-          history.push("/");
-        })
-    }
+    authApi
+      .checkToken()
+      .then(res => console.log(res))
+      .then(({data:{email}}) => {
+        setEmail(email);
+        setLoggedIn(true);
+        history.push("/");
+      })
   }
   
   useEffect(getInitialData, [loggedIn]);
@@ -199,14 +198,11 @@ const App = () => {
   }
 
   const handleLoginSubmit = (credentials) => {
+    console.log('handle');
     authApi.login(credentials)
-      .then(({token}) => {
-          if (token) {
-          console.log('response: ', token);
-          localStorage.setItem("jwt", token);
-          setLoggedIn(true);
-          history.push("/");
-        }
+      .then(() => tokenCheck())
+      .catch(err => {
+        console.log(err);
       })
   }
 
