@@ -14,7 +14,7 @@ const { validateSignIn, validateSignUp } = require('./middlewares/validation');
 const { login, createUser } = require('./controllers/users');
 const NotFoundError = require('./utils/custom_errors/NotFoundError');
 
-const { PORT = 3001 } = process.env;
+const { PORT = 3000 } = process.env;
 
 const corsOptions = {
   origin: [
@@ -22,7 +22,7 @@ const corsOptions = {
     'http://lanets.nomoredomains.club',
     'https://lanets.nomoredomains.club',
   ],
-  methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
