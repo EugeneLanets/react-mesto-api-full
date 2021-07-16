@@ -16,6 +16,16 @@ const NotFoundError = require('./utils/custom_errors/NotFoundError');
 
 const { PORT = 3001 } = process.env;
 
+const corsOptions = {
+  origin: [
+    'localhost:3000',
+    'http://lanets.nomoredomains.club',
+    'https://lanets.nomoredomains.club',
+  ],
+  methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
 const start = async () => {
   await mongoose.connect('mongodb://localhost:27017/mestodb', {
     useNewUrlParser: true,
@@ -31,13 +41,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(requestLogger);
-app.use(cors({
-  origin: [
-    'localhost:3000',
-    'http://lanets.nomoredomains.club',
-    'https://lanets.nomoredomains.club',
-  ],
-}));
+app.use(cors(corsOptions));
 
 app.post('/signin', validateSignIn, login);
 app.post('/signup', validateSignUp, createUser);
