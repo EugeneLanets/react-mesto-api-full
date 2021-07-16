@@ -42,14 +42,16 @@ const App = () => {
   const [email, setEmail] = useState(null);
 
   const getInitialData = () => {
-    Promise.all([api.getCards(), api.getUserInfo()])
-      .then(([initialCards, userInfo]) => {
-        setCurrentUser(userInfo);
-        setCards(initialCards);
-      })
-      .catch(err => {
-        console.log(err);
-      })  
+    if (loggedIn) {
+      Promise.all([api.getCards(), api.getUserInfo()])
+        .then(([initialCards, userInfo]) => {
+          setCurrentUser(userInfo);
+          setCards(initialCards);
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    }  
   }
 
   const handleEscPress = () => {
@@ -84,8 +86,8 @@ const App = () => {
     }
   }
   
-  useEffect(getInitialData, []);
-  useEffect(tokenCheck);
+  useEffect(getInitialData, [loggedIn]);
+  useEffect(tokenCheck, [history]);
   useEffect(
     handleEscPress, 
     [

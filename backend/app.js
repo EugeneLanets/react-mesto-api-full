@@ -18,7 +18,7 @@ const { PORT = 3000 } = process.env;
 
 const corsOptions = {
   origin: [
-    'localhost:3000',
+    'http://localhost:3000',
     'http://lanets.nomoredomains.club',
     'https://lanets.nomoredomains.club',
   ],
