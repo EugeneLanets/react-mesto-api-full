@@ -6,6 +6,7 @@
   background-size: 100%;
   background-repeat: no-repeat;
   border: none;
+  outline: 3px dotted orange;
   position: absolute;
   top: 18px;
   right: 15px;

@@ -42,12 +42,12 @@ const App = () => {
   const [email, setEmail] = useState(null);
 
   const getInitialData = () => {
-    console.log('Get Initial Data ()');
-    console.log('Logged In', loggedIn);
     if (loggedIn) {
       Promise.all([api.getCards(), api.getUserInfo()])
         .then(([initialCards, userInfo]) => {
           setCurrentUser(userInfo);
+          console.log(userInfo);
+          console.log(initialCards);
           setCards(initialCards);
         })
         .catch(err => {
@@ -81,6 +81,7 @@ const App = () => {
       .checkToken()
       .then((response) => {
         setEmail(response.email);
+        setCurrentUser(response);
         setLoggedIn(true);
         history.push("/");
       })
