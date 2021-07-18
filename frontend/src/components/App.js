@@ -42,6 +42,8 @@ const App = () => {
   const [email, setEmail] = useState(null);
 
   const getInitialData = () => {
+    console.log('Get Initial Data ()');
+    console.log('Logged In', loggedIn);
     if (loggedIn) {
       Promise.all([api.getCards(), api.getUserInfo()])
         .then(([initialCards, userInfo]) => {

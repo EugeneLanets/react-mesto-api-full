@@ -1,7 +1,7 @@
 const apiParams = {
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-22',
+  baseUrl: 'https://api.lanets.nomoredomains.club',
   headers: {
-    authorization: '7117bd29-bed2-418b-8dab-8abdf3e6fab4',
+    'Accept': 'application/json',
     'Content-Type': 'application/json'
   }
 }
@@ -26,14 +26,14 @@ class Api {
 
   _get(urlOptions) {
     return fetch(`${this._baseUrl}/${urlOptions}`, {
-      headers: {
-        authorization: this._headers.authorization
-      }
+      headers: this._headers,
+      credentials: 'include',
     })
     .then(this._handleResponse);
   }
 
   getUserInfo() {
+    console.log('Get USer Info');
     return this._get("users/me ");
   }
 
@@ -45,7 +45,8 @@ class Api {
     return fetch(`${this._baseUrl}/${urlOptions}`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify(newData)
+      credentials: 'include',
+      body: JSON.stringify(newData),
     })
     .then(this._handleResponse);
   }
@@ -62,6 +63,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify({name, link})
     })
     .then(this._handleResponse);
@@ -70,9 +72,8 @@ class Api {
   deleteCard(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: "DELETE",
-      headers: {
-        authorization: this._headers.authorization
-      }
+      credentials: 'include',
+      headers: this._headers,
     })
     .then(this._handleResponse);
   }
@@ -80,9 +81,7 @@ class Api {
   toggleLike(id, method) {
     return fetch(`${this._baseUrl}/cards/likes/${id}`, {
       method,
-      headers: {
-        authorization: this._headers.authorization
-      }
+      headers: this._headers,
     })
     .then(this._handleResponse);
   }
