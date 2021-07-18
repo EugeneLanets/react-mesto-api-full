@@ -20,7 +20,7 @@ const login = async (req, res, next) => {
         sameSite: 'none',
         secure: true,
       })
-      .end();
+      .send({ message: 'Вход в систему успешно выполнен' });
   } catch (err) {
     next(err);
   }
