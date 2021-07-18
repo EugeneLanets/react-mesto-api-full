@@ -52,7 +52,7 @@ app.use(auth);
 app.use('/users', require('./routes/users'));
 app.use('/cards', require('./routes/cards'));
 
-app.use('/logout', logout);
+app.get('/logout', logout);
 
 app.use('*', () => {
   throw new NotFoundError('Неверный роутер, страница не найдена');
