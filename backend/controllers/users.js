@@ -26,6 +26,11 @@ const login = async (req, res, next) => {
   }
 };
 
+const logout = async (req, res) => {
+  res.status(200).clearCookie('jwt', { httpOnly: true, sameSite: 'none', secure: true })
+    .send({ message: 'Вы успешно вышли из системы!' });
+};
+
 const getUsers = (req, res, next) => {
   makeQuery(User.find({}), res, next);
 };
@@ -96,6 +101,7 @@ module.exports = {
   getUsers,
   getUserByID,
   login,
+  logout,
   updateAvatar,
   updateUser,
 };

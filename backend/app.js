@@ -11,7 +11,7 @@ const handleError = require('./middlewares/errors');
 const { auth } = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { validateSignIn, validateSignUp } = require('./middlewares/validation');
-const { login, createUser } = require('./controllers/users');
+const { login, createUser, logout } = require('./controllers/users');
 const NotFoundError = require('./utils/custom_errors/NotFoundError');
 
 const { PORT = 3000 } = process.env;
@@ -51,6 +51,8 @@ app.use(auth);
 
 app.use('/users', require('./routes/users'));
 app.use('/cards', require('./routes/cards'));
+
+app.use('/logout', logout);
 
 app.use('*', () => {
   throw new NotFoundError('Неверный роутер, страница не найдена');
