@@ -11,7 +11,7 @@ const Card = ({
 
   const isOwn = card.owner === currentUserId;
   
-  const isLiked = card.likes.some(({_id}) => _id === currentUserId);
+  const isLiked = card.likes.some((like) => like === currentUserId);
   
   const handleClick = () => {
     onCardClick(card);

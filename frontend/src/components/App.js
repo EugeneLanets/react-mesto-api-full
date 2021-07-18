@@ -46,8 +46,6 @@ const App = () => {
       Promise.all([api.getCards(), api.getUserInfo()])
         .then(([initialCards, userInfo]) => {
           setCurrentUser(userInfo);
-          console.log(userInfo);
-          console.log(initialCards);
           setCards(initialCards);
         })
         .catch(err => {
@@ -106,7 +104,8 @@ const App = () => {
   }
 
   const handleLikeClick = ({likes, _id}) => {
-    const isLiked = likes.some(({_id}) => _id === currentUser._id);
+    const isLiked = likes.some((like) => like === currentUser._id);
+    
     const method = isLiked ? "DELETE" : "PUT";
     api.toggleLike(_id, method)
       .then(newCard => {

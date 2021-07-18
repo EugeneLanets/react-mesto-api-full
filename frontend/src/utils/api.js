@@ -33,7 +33,6 @@ class Api {
   }
 
   getUserInfo() {
-    console.log('Get USer Info');
     return this._get("users/me ");
   }
 
@@ -79,9 +78,10 @@ class Api {
   }
 
   toggleLike(id, method) {
-    return fetch(`${this._baseUrl}/cards/likes/${id}`, {
+    return fetch(`${this._baseUrl}/cards/${id}/likes/`, {
       method,
       headers: this._headers,
+      credentials: 'include',
     })
     .then(this._handleResponse);
   }
