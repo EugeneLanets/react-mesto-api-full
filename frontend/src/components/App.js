@@ -77,9 +77,8 @@ const App = () => {
   const tokenCheck = () => {
     authApi
       .checkToken()
-      .then(res => console.log(res))
-      .then(({data:{email}}) => {
-        setEmail(email);
+      .then((response) => {
+        setEmail(response.email);
         setLoggedIn(true);
         history.push("/");
       })
@@ -198,7 +197,6 @@ const App = () => {
   }
 
   const handleLoginSubmit = (credentials) => {
-    console.log('handle');
     authApi.login(credentials)
       .then(() => tokenCheck())
       .catch(err => {
@@ -223,9 +221,15 @@ const App = () => {
   }
 
   const handleLogout = () => {
-    localStorage.removeItem("jwt");
-    setLoggedIn(false);
-    history.push("/");
+    authApi
+      .logout()
+      .then(response => {
+        setLoggedIn(false);
+        history.push("/");
+      })
+      .catch(err => {
+        handleRegistrationEnd(false);
+      })
   }
 
   return (

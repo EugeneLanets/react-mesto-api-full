@@ -33,8 +33,18 @@ class AuthApi {
     return this._post('signin', credentials);
   }
 
+  logout() {
+    return fetch(`${this._baseURL}/logout`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+      }
+    })
+    .then(this._handleResponse);
+  }
+
   checkToken() {
-    console.log('Token');
     return fetch(`${this._baseURL}/users/me`, {
       method: "GET",
       credentials: "include",
