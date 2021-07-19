@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const helmet = require('helmet');
 const { errors } = require('celebrate');
 
 const app = express();
@@ -40,6 +41,7 @@ start();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(helmet());
 app.use(cookieParser());
 app.use(requestLogger);
 app.use(cors(corsOptions));
