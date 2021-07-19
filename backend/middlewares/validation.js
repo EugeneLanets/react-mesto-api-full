@@ -1,4 +1,5 @@
 const { celebrate, Joi } = require('celebrate');
+const validator = require('validator');
 
 const passwordMessages = {
   'string.empty': 'Заполните необходимое поле password',
@@ -45,6 +46,14 @@ const updateAvatarMessages = {
   ...cardLinkMessages,
 };
 
+const urlValidator = (value) => {
+  const result = validator.isURL(value);
+  if (result) {
+    return value;
+  }
+  throw new Error('URL validation error');
+};
+
 const validateSignIn = celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email().messages(emailMessages),
@@ -62,7 +71,7 @@ const validateSignUp = celebrate({
     about: Joi.string().allow('').default('Исследователь').min(2)
       .max(30)
       .messages(nameMessages),
-    avatar: Joi.string().allow('').uri().messages(urlMessages),
+    avatar: Joi.string().allow('').custom(urlValidator).messages(urlMessages),
   }),
 });
 
@@ -76,7 +85,7 @@ const validateNewCard = celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30)
       .messages(cardNameMessages),
-    link: Joi.string().required().uri().messages(cardLinkMessages),
+    link: Joi.string().required().custom(urlValidator).messages(cardLinkMessages),
   }),
 });
 

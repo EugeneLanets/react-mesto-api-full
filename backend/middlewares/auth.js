@@ -1,12 +1,11 @@
 const { verifyToken } = require('../utils/jwt');
-const NoAuthorizationError = require('../utils/custom_errors/NoAuthorizationError');
 const WrongTokenError = require('../utils/custom_errors/WrongTokenError');
 
 const auth = (req, res, next) => {
   const token = req.cookies.jwt;
   let payload;
   if (!token) {
-    throw new NoAuthorizationError('Необходима авторизация');
+    throw new WrongTokenError('Неудачная попытка авторизации');
   }
   try {
     payload = verifyToken(token);
