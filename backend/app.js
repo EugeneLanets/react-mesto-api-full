@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const { errors } = require('celebrate');
 
 const app = express();
@@ -28,6 +29,11 @@ const corsOptions = {
   credentials: true,
 };
 
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+});
+
 const start = async () => {
   await mongoose.connect('mongodb://localhost:27017/mestodb', {
     useNewUrlParser: true,
@@ -45,6 +51,8 @@ app.use(helmet());
 app.use(cookieParser());
 app.use(requestLogger);
 app.use(cors(corsOptions));
+
+app.use(limiter);
 
 app.get('/crash-test', () => {
   setTimeout(() => {
